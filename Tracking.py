@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from colorama import Fore, Style, init
+from colorama import Fore, init
 
 init(autoreset=True)
 
@@ -27,7 +27,13 @@ def search_phone_number(phone_number):
     soup = BeautifulSoup(response.text, 'html.parser')
 
     region = "N/A"
-    location = "N/A"
+    province = "N/A"
+    kabupaten = "N/A"
+    kecamatan = "N/A"
+    kelurahan = "N/A"
+    desa = "N/A"
+    street = "N/A"
+    house_number = "N/A"
     carrier = "N/A"
     line_type = "N/A"
 
@@ -36,9 +42,18 @@ def search_phone_number(phone_number):
         
         if "Indonesia" in text or "region" in text:
             region = text
-        elif "Jakarta" in text or "Surabaya" in text or "Bandung" in text:
-            location = text
-        
+        elif "Jawa" in text or "Sumatra" in text or "Bali" in text:
+            province = text
+        elif "Kabupaten" in text or "Kota" in text:
+            kabupaten = text
+        elif "Kecamatan" in text:
+            kecamatan = text
+        elif "Kelurahan" in text or "Desa" in text:
+            kelurahan = text
+        elif "Street" in text or "Jalan" in text:
+            street = text
+        elif "House No" in text or "No Rumah" in text:
+            house_number = text
         if "Carrier" in text or "Telkomsel" in text or "Indosat" in text or "XL" in text:
             carrier = text
         elif "mobile" in text or "landline" in text:
@@ -46,7 +61,13 @@ def search_phone_number(phone_number):
 
     print(f"Phone Number: {phone_number}")
     print(f"Region: {region}")
-    print(f"Location (Detail): {location}")
+    print(f"Province: {province}")
+    print(f"Kabupaten: {kabupaten}")
+    print(f"Kecamatan: {kecamatan}")
+    print(f"Kelurahan: {kelurahan}")
+    print(f"Desa: {desa}")
+    print(f"Street: {street}")
+    print(f"House Number: {house_number}")
     print(f"Carrier: {carrier}")
     print(f"Line Type: {line_type}")
 
