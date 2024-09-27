@@ -1,7 +1,8 @@
-Phone Number Tracker
+### Phone Number Tracker
+
 This Python script allows you to search for detailed public information about a phone number. It simulates obtaining information such as the region, province, district, sub-district, village, street, and house number, along with the carrier and line type.
 
-Features
+### Features
 Search for a phone number’s public details
 Display information in a detailed format such as:
 Region (Country)
@@ -43,10 +44,20 @@ Salin kode
 python phone_tracker.py
 When prompted, enter the phone number in an international format (example: +62 811234567890).
 
-Example
-bash
+### Example Output
+yaml
 Salin kode
-Number Phone: +62 811234567890
+Phone Number: +62 811234567890
+Region: Indonesia
+Province: Jawa Barat
+Kabupaten: Kabupaten Bandung
+Kecamatan: Kecamatan Sukasari
+Kelurahan: Kelurahan Cipedes
+Desa: Desa Mekarjaya
+Street: Jalan Raya Cibiru No. 45
+House Number: 101
+Carrier: Telkomsel
+Line Type: mobile
 
 
 
